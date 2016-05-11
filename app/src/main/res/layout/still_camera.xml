@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" >
+
+    <FrameLayout
+        android:id="@+id/camera_preview"
+        android:layout_width="412dp"
+        android:layout_height="fill_parent" >
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@+id/flBtnContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="249dp">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_menu_camera"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/ibCapture"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2.69"
+                android:background="#ff5be9ff" />
+
+        </FrameLayout>
+
+        <ImageButton
+            android:id="@+id/ibUse"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/save"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/ibRetake"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/cancel"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</LinearLayout>-->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
+<FrameLayout android:id="@+id/camera_preview"
+    android:layout_width="708dp"
+    android:layout_height="fill_parent">
+    </FrameLayout>
+<LinearLayout android:id="@+id/linearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#ff000000">
+    <FrameLayout
+        android:id="@+id/flBtnContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="#ff000000">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="1">
+
+            <Button android:id="@+id/ibCapture"
+                android:layout_width="fill_parent"
+                android:layout_height="184dp"
+                android:layout_weight="1"
+                android:background="#ff5be9ff"
+                android:layout_marginTop="70dp"
+                android:layout_marginBottom="20dp" />
+
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="184dp"
+                android:id="@+id/button7"
+                android:layout_weight="1"
+                android:layout_marginBottom="80dp"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+    </FrameLayout>
+    <ImageButton android:id="@+id/ibUse"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/save"
+        android:visibility="gone" />
+
+    <ImageButton android:id="@+id/ibRetake"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/cancel"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="25dp"
+        android:visibility="gone" />
+
+</LinearLayout>
+</LinearLayout>

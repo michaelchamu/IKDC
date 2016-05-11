@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="#ffffffff"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/linearLayout">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <HorizontalScrollView
+                android:layout_width="637dp"
+                android:layout_height="106dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/storyScroll"
+                android:background="#ff669900"
+                android:layout_weight="0.97">
+
+                <LinearLayout
+                    android:id="@+id/myGalleryView"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="?android:attr/activatedBackgroundIndicator"
+                    android:baselineAligned="false">
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <ImageButton
+                android:layout_width="157dp"
+                android:layout_height="match_parent"
+                android:id="@+id/addStory"
+                android:src="#da0e6c10"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:weightSum="1">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="#ffb61908">
+
+                <VideoView
+                    android:layout_width="445dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/videoView"/>
+            </FrameLayout>
+            <GridView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/storyGallery"
+                android:verticalSpacing="2dp"
+                android:horizontalSpacing="2dp"
+                android:stretchMode="columnWidth"
+                android:numColumns="2"
+                android:background="#ffdc7a14"
+                android:padding="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

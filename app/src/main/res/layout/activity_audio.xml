@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    tools:context="com.example.icarus.ikdc.Audio">
+
+
+    <ImageView
+        android:layout_width="708dp"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ff000000">
+
+        <FrameLayout
+            android:id="@+id/btnCont"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#ff000000">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="184dp"
+                android:layout_weight="0.17"
+                android:background="#ff41ff40"
+                android:id="@+id/record"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/stop"
+                android:layout_weight="0.69"
+                android:layout_marginTop="25dp" />
+        </LinearLayout>
+
+        </FrameLayout>
+
+
+        <ImageButton
+            android:id="@+id/saveClip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/save"
+            android:scaleType="fitCenter"
+            android:visibility="gone"/>
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/discardClip"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/cancel"
+            android:scaleType="fitCenter"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</LinearLayout>
