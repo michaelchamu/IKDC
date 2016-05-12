@@ -71,8 +71,20 @@
                 android:value="com.example.icarus.ikdc.MainActivity" />
         </activity>
         <activity
+<<<<<<< HEAD
             android:name=".VideoPopUp"
             android:label="@string/title_activity_video_pop_up"></activity>
+=======
+            android:name=".EditActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_edit"
+            android:parentActivityName=".Gallery"
+            android:theme="@style/FullscreenTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.icarus.ikdc.Gallery" />
+        </activity>
+>>>>>>> 12a682416e38a444663ebed54c0df8154b3bd608
     </application>
 
 </manifest>

@@ -15,5 +15,12 @@
     <string name="title_activity_organise">Organise</string>
     <string name="title_activity_gallery">Gallery</string>
     <string name="title_activity_draw">Draw</string>
+<<<<<<< HEAD
     <string name="title_activity_video_pop_up">VideoPopUp</string>
+=======
+
+    <string name="title_activity_edit">EditActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+>>>>>>> 12a682416e38a444663ebed54c0df8154b3bd608
 </resources>

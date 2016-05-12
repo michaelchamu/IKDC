@@ -42,6 +42,7 @@ public class VideoFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 
+<<<<<<< HEAD
                // super.onItemClick(parent, view, pos, id);
                 Intent intent = new Intent(getActivity().getApplicationContext(), VideoPopUp.class);
                 intent.putExtra("video", videos.get(pos).bm);
@@ -49,6 +50,16 @@ public class VideoFragment extends Fragment {
                 startActivity(intent);
 
                // ((OrganiseActivity)getActivity()).itemTransfer(videos.get(pos));
+=======
+                try
+                {
+                    ((OrganiseActivity)getActivity()).itemTransfer(videos.get(pos));
+                }
+                catch (Exception e)
+                {
+                    ((EditActivity)getActivity()).itemTransfer(videos.get(pos));
+                }
+>>>>>>> 12a682416e38a444663ebed54c0df8154b3bd608
 
             }
         }); //The Above commented code needs to deliver the result of fetch gallery into the actual view layout for processing.
