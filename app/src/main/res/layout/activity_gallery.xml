@@ -31,7 +31,7 @@
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/storyScroll"
                 android:background="#ff669900"
-                android:layout_weight="0.97">
+                android:layout_weight="0.5">
 
                 <LinearLayout
                     android:id="@+id/myGalleryView"
@@ -46,10 +46,18 @@
             </HorizontalScrollView>
 
             <ImageButton
-                android:layout_width="157dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/editGallery"
+                android:src="#da14594e"
+                android:layout_weight=".25" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/addStory"
-                android:src="#da0e6c10"/>
+                android:src="#da0e6c10"
+                android:layout_weight=".25" />
 
         </LinearLayout>
 

@@ -54,8 +54,8 @@ public class Gallery extends ActionBarActivity {
         setContentView(R.layout.activity_gallery);
 
         ImageButton addStory;
-        addStory = (ImageButton)findViewById(R.id.addStory);
 
+        addStory = (ImageButton)findViewById(R.id.addStory);
         addStory.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -84,7 +84,8 @@ public class Gallery extends ActionBarActivity {
     }
 
     View insertPhoto(String path, final int id){
-        Bitmap bm = decodeSampledBitmapFromUri(path, 150, 100);
+        SharedFunctions functions = new SharedFunctions();
+        Bitmap bm = functions.decodeSampledBitmapFromUri(path, 150, 100);
         final LinearLayout layout = new LinearLayout(getApplicationContext());
         layout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         layout.setGravity(Gravity.CENTER);
@@ -114,7 +115,7 @@ public class Gallery extends ActionBarActivity {
         return layout;
     }
 
-    public void fetchGallery(int id){
+    public void fetchGallery(final int id){
         if(id != 0) {
             String ExternalStorageDirectoryPath = Environment
                     .getExternalStorageDirectory()
@@ -139,8 +140,8 @@ public class Gallery extends ActionBarActivity {
                 /*
                  *New GridView implimentation start
                  */
-
-                    gridItems.add(new GridViewItem(file.getPath(), file.getAbsolutePath(), decodeSampledBitmapFromUri(file.getAbsolutePath(), 220, 220)));
+                    SharedFunctions functions = new SharedFunctions();
+                    gridItems.add(new GridViewItem(file.getPath(), file.getAbsolutePath(), functions.decodeSampledBitmapFromUri(file.getAbsolutePath(), 220, 220)));
 
                 /*
                  *New GridView implimentation end
@@ -263,44 +264,22 @@ public class Gallery extends ActionBarActivity {
                             Toast.LENGTH_SHORT).show();
                 }
             });
+
+            ImageButton editGallery;
+            final String location = Environment.getExternalStorageDirectory() + "/IKDC/" + id;
+
+            editGallery = (ImageButton) findViewById(R.id.editGallery);
+            editGallery.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    Intent editGallery = new Intent(getApplicationContext(), EditActivity.class);
+                    Toast.makeText(getApplicationContext(), "Opening Edit Screen...", Toast.LENGTH_SHORT).show();
+                    editGallery.putExtra("GalleryLocation", location);
+                    editGallery.putExtra("GalleryID", id);
+                    startActivity(editGallery);
+                }
+            });
         }
-    }
-
-    public Bitmap decodeSampledBitmapFromUri(String path, int reqWidth, int reqHeight) {
-        Bitmap bm = null;
-
-        // First decode with inJustDecodeBounds=true to check dimensions
-        final BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(path, options);
-
-        // Calculate inSampleSize
-        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
-
-        // Decode bitmap with inSampleSize set
-        options.inJustDecodeBounds = false;
-        bm = BitmapFactory.decodeFile(path, options);
-
-        return bm;
-    }
-
-    public int calculateInSampleSize(
-
-            BitmapFactory.Options options, int reqWidth, int reqHeight) {
-        // Raw height and width of image
-        final int height = options.outHeight;
-        final int width = options.outWidth;
-        int inSampleSize = 1;
-
-
-        if (height > reqHeight || width > reqWidth) {
-            if (width > height) {
-                inSampleSize = Math.round((float)height / (float)reqHeight);
-            } else {
-                inSampleSize = Math.round((float)width / (float)reqWidth);
-            }
-        }
-        return inSampleSize;
     }
 
     public int exttest(String ext)

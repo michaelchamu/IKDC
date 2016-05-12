@@ -33,7 +33,14 @@ public class AudioFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 
-                ((OrganiseActivity)getActivity()).itemTransfer(audio.get(pos));
+                try
+                {
+                    ((OrganiseActivity)getActivity()).itemTransfer(audio.get(pos));
+                }
+                catch (Exception e)
+                {
+                    ((EditActivity)getActivity()).itemTransfer(audio.get(pos));
+                }
 
             }
         }); //The Above commented code needs to deliver the result of fetch gallery into the actual view layout for processing.

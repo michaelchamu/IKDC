@@ -40,7 +40,14 @@ public class VideoFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 
-                ((OrganiseActivity)getActivity()).itemTransfer(videos.get(pos));
+                try
+                {
+                    ((OrganiseActivity)getActivity()).itemTransfer(videos.get(pos));
+                }
+                catch (Exception e)
+                {
+                    ((EditActivity)getActivity()).itemTransfer(videos.get(pos));
+                }
 
             }
         }); //The Above commented code needs to deliver the result of fetch gallery into the actual view layout for processing.
