@@ -1,6 +1,7 @@
 package com.example.icarus.ikdc;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.VideoView;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ import static android.media.ThumbnailUtils.createVideoThumbnail;
 public class VideoFragment extends Fragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
         View rootView = inflater.inflate(R.layout.fragment_videos, container, false);
@@ -40,7 +42,13 @@ public class VideoFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 
-                ((OrganiseActivity)getActivity()).itemTransfer(videos.get(pos));
+               // super.onItemClick(parent, view, pos, id);
+                Intent intent = new Intent(getActivity().getApplicationContext(), VideoPopUp.class);
+                intent.putExtra("video", videos.get(pos).bm);
+                intent.putExtra("uri",Environment.getExternalStorageDirectory() + "/IKDC/commonStorage/videos/" + videos.get(pos).name );
+                startActivity(intent);
+
+               // ((OrganiseActivity)getActivity()).itemTransfer(videos.get(pos));
 
             }
         }); //The Above commented code needs to deliver the result of fetch gallery into the actual view layout for processing.
