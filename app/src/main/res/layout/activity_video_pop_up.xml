@@ -27,14 +27,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.4">
 
-                <ImageButton android:id="@+id/ibUse"
+                <ImageButton android:id="@+id/saveFromPreview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="fitCenter"
                     android:src="@drawable/save"
                     android:layout_weight=".2" />
 
-                <ImageButton android:id="@+id/ibRetake"
+                <ImageButton android:id="@+id/cancelFromPreview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/cancel"

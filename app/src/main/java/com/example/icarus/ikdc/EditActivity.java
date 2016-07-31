@@ -61,6 +61,8 @@ public class EditActivity extends ActionBarActivity {
     GridView storyGallery;
     List<GridViewItem> elements = new ArrayList<GridViewItem>();
 
+    private int galleryId = 0;
+
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -164,8 +166,12 @@ public class EditActivity extends ActionBarActivity {
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
 
         Bundle extras = getIntent().getExtras();
+
+        galleryId = extras.getInt("GalleryID");
+
         if(extras!=null)
         {
+
             fetchGallery(extras.getInt("GalleryID"));
             Toast.makeText(getApplicationContext(), extras.getString("GalleryLocation"), Toast.LENGTH_SHORT).show();
 
@@ -201,122 +207,60 @@ public class EditActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                int storyId = myData.retrieveStoryNum() + 1;
-                long thumbNum = myData.retrieveThumbNum() + 1;
+                File destination = new File(Environment.getExternalStorageDirectory() + "/IKDC/" + galleryId + " - Story");
 
-                int flag = 0, count = 0;
+                int actNum = myData.getActivityCount(galleryId);
 
-                while (flag==0){
+                for(GridViewItem elmnt : elements){
+                    //Toast.makeText(getApplicationContext(), "ITEM NAME: " + elmnt.name, Toast.LENGTH_LONG).show();
 
-                    if (count == elements.size()){
-                        flag = 1;
-                        Toast.makeText(getApplicationContext(), "Please add image for Thumbnail!", Toast.LENGTH_SHORT).show();
-                    }else{
-                        if (exttest(getExt(elements.get(count).name)) == 1){
-                            Thumbnail thisThumb = new Thumbnail();
-                            Story thisStory = new Story(0, storyId + " - Story");
-                            File thmbSource = new File(elements.get(count).absoluteLocation);
-                            File thmbDest = new File(Environment.getExternalStorageDirectory() + "/IKDC/thumbnail/" + thumbNum + " - thmb.jpg");
+                    if (exttest(getExt(elmnt.name)) == 1){
+                        File sub1 = new File(Environment.getExternalStorageDirectory() + "/IKDC/" + galleryId + " - Story/images/" + elmnt.name);
+                        if (sub1.exists()){
+                            //Toast.makeText(getApplicationContext(), "OLD IMAGE: " + elmnt.name, Toast.LENGTH_LONG).show();
 
-                            try{
-                                copyFile(thmbSource, thmbDest);
-                                storyId =(int) myData.createStory(thisStory);
-                                myData.createThmb(thumbNum + " - thmb.jpg", storyId);
-                            } catch (Exception e){
-                                Toast.makeText(getApplicationContext(), "THUMBNAIL TRANSFER FAILED: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-
-
-                            flag = 2;
+                        }
+                        else{
+                            //Toast.makeText(getApplicationContext(), "NEW IMAGE: " + elmnt.name, Toast.LENGTH_LONG).show();
+                            saveFile(elmnt, destination, actNum);
+                            actNum++;
+                        }
+                    }else if (exttest(getExt(elmnt.name)) == 2){
+                        File sub2 = new File(Environment.getExternalStorageDirectory() + "/IKDC/" + galleryId + " - Story/audio/" + elmnt.name);
+                        if (sub2.exists()){
+                            //Toast.makeText(getApplicationContext(), "OLD AUDIO: " + elmnt.name, Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            //Toast.makeText(getApplicationContext(), "NEW AUDIO: " + elmnt.name, Toast.LENGTH_LONG).show();
+                            saveFile(elmnt, destination, actNum);
+                            actNum++;
+                        }
+                    }else if (exttest(getExt(elmnt.name)) == 3){
+                        File sub3 = new File(Environment.getExternalStorageDirectory() + "/IKDC/" + galleryId + " - Story/text/" + elmnt.name);
+                        if (sub3.exists()){
+                            //Toast.makeText(getApplicationContext(), "OLD TEXT: " + elmnt.name, Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            //Toast.makeText(getApplicationContext(), "NEW TEXT: " + elmnt.name, Toast.LENGTH_LONG).show();
+                            saveFile(elmnt, destination, actNum);
+                            actNum++;
+                        }
+                    }else if (exttest(getExt(elmnt.name)) == 4){
+                        File sub4 = new File(Environment.getExternalStorageDirectory() + "/IKDC/" + galleryId + " - Story/videos/" + elmnt.name);
+                        if (sub4.exists()){
+                            //Toast.makeText(getApplicationContext(), "OLD VIDEO: " + elmnt.name, Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            //Toast.makeText(getApplicationContext(), "NEW VIDEO: " + elmnt.name, Toast.LENGTH_LONG).show();
+                            saveFile(elmnt, destination, actNum);
+                            actNum++;
                         }
                     }
-                    count++;
-                }
-
-                if (flag == 2){
-                    File destination = new File(Environment.getExternalStorageDirectory() + "/IKDC/" + storyId + " - Story");
-                    File sub1 = new File(Environment.getExternalStorageDirectory() + "/IKDC/" + storyId + " - Story/images");
-                    File sub2 = new File(Environment.getExternalStorageDirectory() + "/IKDC/" + storyId + " - Story/audio");
-                    File sub3 = new File(Environment.getExternalStorageDirectory() + "/IKDC/" + storyId + " - Story/text");
-                    File sub4 = new File(Environment.getExternalStorageDirectory() + "/IKDC/" + storyId + " - Story/videos");
-                    destination.mkdir();
-                    sub1.mkdir();
-                    sub2.mkdir();
-                    sub3.mkdir();
-                    sub4.mkdir();
-
-                    int actNum = myData.getActivityCount(storyId);
-
-                    for(GridViewItem elmnt : elements){
-                        //Toast.makeText(getApplicationContext(), "ITEM NAME: " + elmnt.name, Toast.LENGTH_LONG).show();
-
-                        com.example.icarus.ikdc.database.Activity thisActivity = new com.example.icarus.ikdc.database.Activity();
-
-                        thisActivity.setId(0);
-                        thisActivity.setStory_id(storyId);
-
-                        Storage thisStorage = new Storage();
-                        thisStorage.setFile_name(elmnt.name);
-                        thisStorage.setFile_path(elmnt.getAbsolutePath());
-
-                        thisActivity.setStory_id(myData.createStorage(thisStorage));
-
-                        myData.createActivity(thisActivity);
-
-                        if (exttest(getExt(elmnt.name)) == 1){
-
-                            File dest = new File(destination.getAbsolutePath() + "/images/" + actNum + " - img.jpg");
-
-                            File source = new File(elmnt.getAbsolutePath());
-
-                            try{
-                                copyFile(source, dest);
-                            }catch(Exception e){
-                                Toast.makeText(getApplicationContext(), "IMAGE TRANSFER FAILED: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-
-
-                            //Create Activity - Copy File from commonStorage to Story
-                        } else if (exttest(getExt(elmnt.name)) == 2){
-
-                            File dest = new File(destination.getAbsolutePath() + "/videos/" + actNum + " - vid.3gp");
-
-                            File source = new File(elmnt.getAbsolutePath());
-
-                            try{
-                                copyFile(source, dest);
-                            }catch(Exception e){
-                                Toast.makeText(getApplicationContext(), "VIDEO TRANSFER FAILED: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-                        } else if (exttest(getExt(elmnt.name)) == 3){
-                            File dest = new File(destination.getAbsolutePath() + "/audio/" + actNum + " - aud.mp4");
-
-                            File source = new File(elmnt.getAbsolutePath());
-
-                            try{
-                                copyFile(source, dest);
-                            }catch(Exception e){
-                                Toast.makeText(getApplicationContext(), "AUDIO TRANSFER FAILED: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-                        } else if (exttest(getExt(elmnt.name)) == 4){
-                            File dest = new File(destination.getAbsolutePath() + "/text/" + actNum + " - text.text");
-
-                            File source = new File(elmnt.getAbsolutePath());
-
-                            try{
-                                copyFile(source, dest);
-                            }catch(Exception e){
-                                Toast.makeText(getApplicationContext(), "TEXT TRANSFER FAILED: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-                        }
-                        actNum++;
-                    }
-
                 }
 
                 /*Intent gal = new Intent(getApplicationContext(), Gallery.class);
                 startActivity(gal);*/
-                finish();
+               finish();
             }
         });
 
@@ -328,6 +272,73 @@ public class EditActivity extends ActionBarActivity {
                 finish();
             }
         });
+    }
+
+    public Boolean saveFile (GridViewItem elmnt, File destination, int actNum)
+    {
+
+        com.example.icarus.ikdc.database.Activity thisActivity = new com.example.icarus.ikdc.database.Activity();
+
+        thisActivity.setId(0);
+        thisActivity.setStory_id(galleryId);
+
+        Storage thisStorage = new Storage();
+        thisStorage.setFile_name(elmnt.name);
+        thisStorage.setFile_path(elmnt.getAbsolutePath());
+
+        thisActivity.setStorage_id(myData.createStorage(thisStorage));
+
+        myData.createActivity(thisActivity);
+
+        if (exttest(getExt(elmnt.name)) == 1){
+
+            File dest = new File(destination.getAbsolutePath() + "/images/" + actNum + " - img.jpg");
+
+            File source = new File(elmnt.getAbsolutePath());
+
+            try{
+                copyFile(source, dest);
+                return true;
+            }catch(Exception e){
+                Toast.makeText(getApplicationContext(), "IMAGE TRANSFER FAILED: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+            //Create Activity - Copy File from commonStorage to Story
+        } else if (exttest(getExt(elmnt.name)) == 2){
+
+            File dest = new File(destination.getAbsolutePath() + "/videos/" + actNum + " - vid.3gp");
+
+            File source = new File(elmnt.getAbsolutePath());
+
+            try{
+                copyFile(source, dest);
+                return true;
+            }catch(Exception e){
+                Toast.makeText(getApplicationContext(), "VIDEO TRANSFER FAILED: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        } else if (exttest(getExt(elmnt.name)) == 3){
+            File dest = new File(destination.getAbsolutePath() + "/audio/" + actNum + " - aud.mp4");
+
+            File source = new File(elmnt.getAbsolutePath());
+
+            try{
+                copyFile(source, dest);
+                return true;
+            }catch(Exception e){
+                Toast.makeText(getApplicationContext(), "AUDIO TRANSFER FAILED: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        } else if (exttest(getExt(elmnt.name)) == 4){
+            File dest = new File(destination.getAbsolutePath() + "/text/" + actNum + " - text.text");
+
+            File source = new File(elmnt.getAbsolutePath());
+
+            try{
+                copyFile(source, dest);
+                return true;
+            }catch(Exception e){
+                Toast.makeText(getApplicationContext(), "TEXT TRANSFER FAILED: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }
+        return false;
     }
 
     public void fetchGallery(int id){
@@ -354,7 +365,7 @@ public class EditActivity extends ActionBarActivity {
                  *New GridView implimentation start
                  */
                 SharedFunctions functions = new SharedFunctions();
-                gridItems.add(new GridViewItem(file.getPath(), file.getAbsolutePath(), functions.decodeSampledBitmapFromUri(file.getAbsolutePath(), 220, 220)));
+                gridItems.add(new GridViewItem(file.getName(), file.getAbsolutePath(), functions.decodeSampledBitmapFromUri(file.getAbsolutePath(), 220, 220)));
 
                 /*
                  *New GridView implimentation end
@@ -529,17 +540,11 @@ public class EditActivity extends ActionBarActivity {
             storyGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-                    //elements.remove(pos);
 
-                    File flag = new File(elements.get(pos).absoluteLocation);
-
-                    if (flag.exists())
-                    {
-                        Toast.makeText(getApplicationContext(), "This File already exists : " + elements.get(pos).absoluteLocation, Toast.LENGTH_SHORT).show();
-                    }
-
+                   // elements.remove(pos);
                     //storyAdapter.removeItem(pos);
                     //storyAdapter.notifyDataSetChanged();
+
                 }
             });
 

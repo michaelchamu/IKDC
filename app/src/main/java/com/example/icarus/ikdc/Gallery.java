@@ -52,7 +52,9 @@ public class Gallery extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-
+        Toast.makeText(getApplicationContext(),
+                "Inside gallery",
+                Toast.LENGTH_SHORT).show();
         ImageButton addStory;
 
         addStory = (ImageButton)findViewById(R.id.addStory);
