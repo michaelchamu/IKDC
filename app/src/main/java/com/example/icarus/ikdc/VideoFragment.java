@@ -43,10 +43,10 @@ public class VideoFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
                //super.onItemClick(parent, view, pos, id);
 
-                Intent intent = new Intent(getActivity().getApplicationContext(), VideoPopUp.class);
+                /*Intent intent = new Intent(getActivity().getApplicationContext(), VideoPopUp.class);
                 intent.putExtra("videoPosition",pos);
                 intent.putExtra("uri",Environment.getExternalStorageDirectory() + "/IKDC/commonStorage/videos/" + videos.get(pos).name );
-                startActivity(intent);
+                startActivity(intent);*/
 
                //((OrganiseActivity)getActivity()).itemTransfer(videos.get(pos));
 
