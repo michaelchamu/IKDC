@@ -4,20 +4,22 @@
     tools:context="com.example.icarus.ikdc.OrganiseActivity$PlaceholderFragment">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="348dp"
-            android:layout_height="fill_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <FrameLayout
                 android:layout_width="fill_parent"
@@ -33,53 +35,54 @@
                 <com.example.icarus.ikdc.view.SlidingTabLayout
                     android:id="@+id/tab"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
             </FrameLayout>
 
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_weight="0.0">
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <GridView
+                android:id="@+id/newStoryGrid"
                 android:layout_width="411dp"
                 android:layout_height="match_parent"
-                android:id="@+id/newStoryGrid"
-                android:numColumns="2"
-                android:verticalSpacing="4dp"
                 android:horizontalSpacing="2dp"
+                android:numColumns="2"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp" />
+                android:paddingRight="10dp"
+                android:verticalSpacing="4dp" >
 
-            <RelativeLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:weightSum="1">
+            </GridView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="265dp"
                     android:id="@+id/imageButton"
-                    android:layout_weight="0.34"
-                    android:src="@drawable/save"
-                    android:scaleType="fitCenter" />
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="0.5"
+                    android:background="@android:color/holo_green_light"
+                    android:contentDescription="TODO"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/save" />
 
                 <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="265dp"
                     android:id="@+id/imageButton2"
-                    android:layout_weight="0.33"
-                    android:src="@drawable/cancel"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:scaleType="fitCenter" />
-            </RelativeLayout>
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="0.5"
+                    android:background="@android:color/holo_red_light"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/cancel" />
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>

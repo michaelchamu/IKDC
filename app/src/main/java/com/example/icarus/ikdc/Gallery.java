@@ -57,6 +57,15 @@ public class Gallery extends AppCompatActivity {
                 Toast.LENGTH_SHORT).show();
         ImageButton addStory;
 
+        ImageButton backButton = (ImageButton) findViewById(R.id.back_button);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         addStory = (ImageButton)findViewById(R.id.addStory);
         addStory.setOnClickListener(new View.OnClickListener(){
             @Override

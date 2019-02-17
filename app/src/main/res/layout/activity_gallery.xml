@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -20,44 +21,52 @@
         android:id="@+id/linearLayout">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="1">
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/back_button" />
 
             <HorizontalScrollView
-                android:layout_width="637dp"
+                android:id="@+id/storyScroll"
+                android:layout_width="wrap_content"
                 android:layout_height="106dp"
                 android:layout_gravity="center_horizontal"
-                android:id="@+id/storyScroll"
-                android:background="#ff669900"
-                android:layout_weight="0.5">
+                android:layout_weight="6"
+                android:background="#ff669900">
 
                 <LinearLayout
                     android:id="@+id/myGalleryView"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
                     android:background="?android:attr/activatedBackgroundIndicator"
-                    android:baselineAligned="false">
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
 
                 </LinearLayout>
 
             </HorizontalScrollView>
 
             <ImageButton
+                android:id="@+id/editGallery"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/editGallery"
-                android:src="#da14594e"
-                android:layout_weight=".25" />
+                android:layout_weight="1.5"
+                android:src="#da14594e" />
 
             <ImageButton
+                android:id="@+id/addStory"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/addStory"
-                android:src="#da0e6c10"
-                android:layout_weight=".25" />
+                android:layout_weight="1.5"
+                android:src="#da0e6c10" />
 
         </LinearLayout>
 

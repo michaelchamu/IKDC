@@ -27,7 +27,7 @@
             android:layout_weight="1"
             android:background="#ff5be9ff"
             android:scaleType="fitCenter"
-            android:src="@drawable/camera" />
+            android:src="@drawable/eye" />
 
         <ImageButton
             android:id="@+id/button5"
@@ -49,7 +49,7 @@
             android:layout_weight="1"
             android:background="#ff41ff40"
             android:scaleType="fitCenter"
-            android:src="@drawable/audio" />
+            android:src="@drawable/mouth" />
     </LinearLayout>
 
     <LinearLayout
@@ -72,7 +72,7 @@
             android:layout_weight="1"
             android:background="#ffffffff"
             android:scaleType="fitCenter"
-            android:src="@drawable/draw" />
+            android:src="@drawable/tree" />
 
         <ImageButton
             android:id="@+id/button2"
@@ -81,7 +81,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginRight="50dp"
             android:layout_weight="1"
-            android:background="#ff945918"
+            android:background="#a77055"
             android:scaleType="fitCenter"
             android:src="@drawable/text" />
 
@@ -93,7 +93,7 @@
             android:layout_marginRight="50dp"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/phone" />
     </LinearLayout>
 
 </RelativeLayout>

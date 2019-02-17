@@ -51,6 +51,15 @@ public class Audio extends AppCompatActivity {
         bt2 = (ImageButton) findViewById(R.id.discardClip);
         container = (FrameLayout) findViewById(R.id.btnCont);
 
+        ImageButton backButton = (ImageButton) findViewById(R.id.back_button);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         View.OnClickListener save = new View.OnClickListener() {
             @Override
             public void onClick(View view) {

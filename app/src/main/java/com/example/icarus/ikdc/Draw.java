@@ -1,9 +1,11 @@
 package com.example.icarus.ikdc;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,7 +27,7 @@ import java.util.List;
 public class Draw extends AppCompatActivity implements View.OnClickListener {
 
     private DrawingView drawView;
-    private ImageButton currPaint, newBtn ,eraseBtn, drawBtn,saveBtn;
+    private ImageButton currPaint, newBtn ,eraseBtn, drawBtn,saveBtn, backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,14 @@ public class Draw extends AppCompatActivity implements View.OnClickListener {
 
             saveBtn = (ImageButton)findViewById(R.id.save);
             saveBtn.setOnClickListener(this);
+
+            backButton = (ImageButton) findViewById(R.id.back_button);
+            backButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
         }
         catch(Exception ex)
         {
