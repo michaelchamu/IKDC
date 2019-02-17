@@ -1,4 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal"
@@ -62,24 +64,30 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="#ff000000"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:weightSum="3">
 
                 <ImageButton
                     android:id="@+id/record"
                     android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:background="#ffff2220" />
 
                 <Button
                     android:id="@+id/stopVid"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="80dp"
-                    android:layout_weight="0.5" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/backButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/back_button"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/back_button" />
             </LinearLayout>
         </FrameLayout>
 

@@ -22,4 +22,5 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="DescSave">This is the save Button</string>
     <string name="DescCancel">This is the cancel button</string>
+    <string name="back_button">This is the back button</string>
 </resources>

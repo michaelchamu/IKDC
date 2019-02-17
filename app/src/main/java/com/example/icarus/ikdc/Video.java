@@ -70,6 +70,7 @@ public class Video extends Activity  implements SurfaceHolder.Callback  {
         super.onCreate(savedInstanceState);
 
         myData = new DataAccessObject(this);
+        new ImageButton(this.getApplicationContext());
 
         mResources = getResources();
         mPackageName = getPackageName();
@@ -92,6 +93,8 @@ public class Video extends Activity  implements SurfaceHolder.Callback  {
         stpVid.setEnabled(false);
         stpVid.setOnClickListener(stopV);
 
+
+
     }
 
     @SuppressWarnings("deprecation")
@@ -108,11 +111,20 @@ public class Video extends Activity  implements SurfaceHolder.Callback  {
         mTvTimeCount = (TextView) findViewById(mResources.getIdentifier("timer", "id", mPackageName));
         mTvTimeCount.setVisibility(View.INVISIBLE);
 
+        ImageButton backButton = (ImageButton) findViewById(R.id.backButton);
+
         //mButton.setBackgroundResource(mResources.getIdentifier("video", "mipmap", mPackageName));
         mButton.setOnClickListener(mBtnListener);
 
         mSurfaceHolder = mSurfaceView.getHolder();
         mSurfaceHolder.addCallback(this);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                onBackPressed();
+            }
+        });
 
         if(Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
             try {
