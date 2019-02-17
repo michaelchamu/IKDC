@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Draw extends ActionBarActivity implements View.OnClickListener {
+public class Draw extends AppCompatActivity implements View.OnClickListener {
 
     private DrawingView drawView;
     private ImageButton currPaint, newBtn ,eraseBtn, drawBtn,saveBtn;

@@ -3,7 +3,7 @@ package com.example.icarus.ikdc;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +18,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 
 
-public class TextEditor extends ActionBarActivity {
+public class TextEditor extends AppCompatActivity {
     private DataAccessObject myData;
     ImageButton save;
     ImageButton cancel;

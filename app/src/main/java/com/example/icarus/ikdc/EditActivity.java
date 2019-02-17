@@ -11,7 +11,7 @@ import android.media.MediaPlayer;
 import android.os.Environment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -46,7 +46,7 @@ import static android.media.ThumbnailUtils.createVideoThumbnail;
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class EditActivity extends ActionBarActivity {
+public class EditActivity extends AppCompatActivity {
 
     private final String[] imageExtensions =  new String[] {"jpg", "png", "gif","jpeg"};
     private final String[] videoExtensions =  new String[] {"3gp"};

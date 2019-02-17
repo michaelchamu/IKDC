@@ -19,21 +19,23 @@
 
         <ImageButton
             android:id="@+id/save"
-            android:layout_height="260dp"
             android:layout_width="match_parent"
-            android:onClick="onClick"
-            android:src="@drawable/save"
+            android:layout_height="260dp"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/drawing"
-            android:scaleType="fitCenter" />
+            android:layout_weight="0.5"
+            android:onClick="onClick"
+            android:scaleType="fitCenter"
+            android:src="@drawable/save" />
 
         <ImageButton
             android:id="@+id/new_button"
             android:layout_width="match_parent"
             android:layout_height="260dp"
+            android:layout_weight="0.5"
             android:onClick="onClick"
-            android:src="@drawable/cancel"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/cancel" />
     </LinearLayout>
 
     <RelativeLayout

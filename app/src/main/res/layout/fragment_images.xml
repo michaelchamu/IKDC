@@ -12,13 +12,13 @@
         android:layout_centerInParent="true"/>
 
     <GridView
+        android:id="@+id/imageGrid"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/imageGrid"
+        android:horizontalSpacing="2dp"
         android:numColumns="2"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:verticalSpacing="4dp"
-        android:horizontalSpacing="2dp" />
+        android:verticalSpacing="4dp" />
 
 </LinearLayout>

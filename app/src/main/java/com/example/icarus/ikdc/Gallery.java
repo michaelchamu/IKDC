@@ -8,7 +8,7 @@ import android.graphics.Canvas;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -34,7 +34,7 @@ import java.util.List;
 import static android.media.ThumbnailUtils.createVideoThumbnail;
 
 
-public class Gallery extends ActionBarActivity {
+public class Gallery extends AppCompatActivity {
 
     LinearLayout myGallery;
     GridView storyGallery;

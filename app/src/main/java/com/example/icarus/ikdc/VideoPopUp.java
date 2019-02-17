@@ -4,14 +4,14 @@ import android.content.Intent;
 import android.view.View.OnClickListener;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-public class VideoPopUp extends ActionBarActivity {
+public class VideoPopUp extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
