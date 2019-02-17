@@ -63,6 +63,7 @@
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal">
@@ -71,13 +72,13 @@
         android:id="@+id/camera_preview"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="0.2"></FrameLayout>
+        android:layout_weight="0.15"></FrameLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="0.8"
+        android:layout_weight="0.85"
         android:background="#ff000000"
         android:gravity="center"
         android:orientation="vertical">
@@ -86,32 +87,32 @@
             android:id="@+id/flBtnContainer"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="1"
             android:background="#ff000000">
 
             <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:weightSum="1">
+                android:weightSum="2">
 
                 <Button
                     android:id="@+id/ibCapture"
                     android:layout_width="fill_parent"
-                    android:layout_height="184dp"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_weight="0.5"
+                    android:layout_height="589dp"
+                    android:layout_weight="1"
                     android:background="#ff5be9ff" />
 
 
                 <Button
                     android:id="@+id/button7"
                     android:layout_width="fill_parent"
-                    android:layout_height="184dp"
+                    android:layout_height="200dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="80dp"
-                    android:layout_weight="0.5" />
+                    android:background="@drawable/back_button"
+                    android:scaleX="1"
+                    android:scaleY="1" />
+
             </LinearLayout>
         </FrameLayout>
 

@@ -15,6 +15,7 @@ import android.hardware.SensorManager;
 import android.media.ExifInterface;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
@@ -69,6 +70,7 @@ public class IKDCStillCamera extends Activity implements SensorEventListener {
         ibRetake = (ImageButton) findViewById(R.id.ibRetake);
         ibUse = (ImageButton) findViewById(R.id.ibUse);
         ibCapture = (Button) findViewById(R.id.ibCapture);
+        Button backButton = (Button) findViewById(R.id.button7);
         flBtnContainer = (FrameLayout) findViewById(R.id.flBtnContainer);
 
         // Getting the sensor service.
@@ -116,6 +118,14 @@ public class IKDCStillCamera extends Activity implements SensorEventListener {
                 finish();
             }
         });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
     }
 
     private void createCamera() {
