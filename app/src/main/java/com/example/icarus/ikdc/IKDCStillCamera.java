@@ -1,6 +1,7 @@
 package com.example.icarus.ikdc;
 
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -216,6 +217,7 @@ public class IKDCStillCamera extends Activity implements SensorEventListener {
     }
 
     /** Check if this device has a camera */
+    @SuppressLint("UnsupportedChromeOsCameraSystemFeature")
     private boolean checkCameraHardware(Context context) {
         if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
             // this device has a camera

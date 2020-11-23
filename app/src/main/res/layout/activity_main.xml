@@ -38,7 +38,7 @@
             android:layout_weight="1"
             android:background="#ffff2220"
             android:scaleType="fitCenter"
-            android:src="@drawable/video" />
+            android:src="@drawable/feet" />
 
         <ImageButton
             android:id="@+id/button6"
